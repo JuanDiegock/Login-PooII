@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Panel Principal</title>
+
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+
+<body>
+
+    <main class="panel-container">
+
+        <header class="panel-header">
+
+            <div>
+
+                <h1>Panel Principal</h1>
+
+                <p id="bienvenida">
+                    Bienvenido al sistema
+                </p>
+
+            </div>
+
+
+            <button
+                id="cerrarSesion"
+                class="btn-logout"
+            >
+                Cerrar sesión
+            </button>
+
+        </header>
+
+
+        <section class="panel-content">
+
+            <h2>Dashboard</h2>
+
+
+            <div class="cards">
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        👥
+                    </div>
+
+                    <h3>Usuarios</h3>
+
+                    <p>
+                        Gestión de usuarios del sistema.
+                    </p>
+
+                    <button>
+                        Administrar
+                    </button>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        📋
+                    </div>
+
+                    <h3>Registros</h3>
+
+                    <p>
+                        Consulta y gestión de registros.
+                    </p>
+
+                    <button>
+                        Ver registros
+                    </button>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>Configuración</h3>
+
+                    <p>
+                        Configuración general del sistema.
+                    </p>
+
+                    <button>
+                        Configurar
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        // Obtener usuario de la sesión
+
+        const usuario =
+            sessionStorage.getItem("usuario");
+
+
+        // Mostrar bienvenida
+
+        if (usuario) {
+
+            document.getElementById(
+                "bienvenida"
+            ).textContent =
+                "Bienvenido, " + usuario;
+
+        }
+
+
+        // ============================
+        // CERRAR SESIÓN
+        // ============================
+
+        document
+            .getElementById("cerrarSesion")
+            .addEventListener("click", function () {
+
+                sessionStorage.removeItem("usuario");
+
+                window.location.href = "index.html";
+
+            });
+
+    </script>
+
+</body>
+
+</html>
